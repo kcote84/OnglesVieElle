@@ -1,0 +1,8 @@
+# IDE
+.idea/
+
+# Stub PyCharm, non lie au site
+main.py
+
+# Fichiers temporaires de test
+_rwd-test.html
