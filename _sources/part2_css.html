@@ -272,8 +272,6 @@ section[id],main{scroll-margin-top:96px}
 }
 .hero__trust > span{display:inline-flex;align-items:center;gap:.5em;min-width:0}
 .hero__trust svg{width:15px;height:15px;color:var(--gold);flex:none}
-.stars{display:inline-flex;gap:2px}
-.stars svg{width:13px;height:13px;color:var(--gold)}
 
 /* Cadre arche pour la photo principale */
 .hero__media{position:relative;justify-self:center;width:100%;max-width:470px}
@@ -481,29 +479,7 @@ section[id],main{scroll-margin-top:96px}
 }
 
 /* =========================================================================
-   11. AVIS
-   ========================================================================= */
-.avis{display:grid;gap:clamp(16px,2.4vw,24px);grid-template-columns:repeat(auto-fit,minmax(258px,1fr))}
-.avis .card{display:flex;flex-direction:column;gap:14px}
-.avis__q{font-family:var(--serif);font-size:1.16rem;line-height:1.55;color:var(--ink-2);font-style:italic;flex:1}
-.avis__who{display:flex;align-items:center;gap:11px;min-width:0}
-.avis__av{
-  width:38px;height:38px;border-radius:50%;flex:none;display:grid;place-items:center;
-  background:linear-gradient(140deg,var(--cream-2),var(--rose-lt));
-  font-family:var(--serif);font-size:1.02rem;color:var(--gold-dp);border:1px solid rgba(185,139,78,.26);
-}
-.avis__who b{display:block;font-weight:400;font-size:.95rem}
-.avis__who span{display:block;font-size:.76rem;color:var(--muted)}
-.proof{
-  display:grid;gap:14px 10px;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-  margin-top:clamp(24px,3.2vw,34px);padding-top:clamp(24px,3.2vw,34px);border-top:1px solid var(--line-soft);
-  text-align:center;
-}
-.proof b{display:block;font-family:var(--serif);font-size:2.05rem;line-height:1;color:var(--ink);font-weight:500}
-.proof span{display:block;font-size:.775rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:7px}
-
-/* =========================================================================
-   12. ZONE DESSERVIE
+   11. ZONE DESSERVIE
    ========================================================================= */
 .zone{display:grid;gap:clamp(20px,3vw,30px)}
 @media (min-width:900px){.zone{grid-template-columns:.95fr 1.05fr}}
@@ -526,7 +502,7 @@ section[id],main{scroll-margin-top:96px}
 .zone__card{background:linear-gradient(150deg,var(--paper),var(--cream-2))}
 
 /* =========================================================================
-   13. FAQ
+   12. FAQ
    ========================================================================= */
 .faq{max-width:840px;margin-inline:auto;display:grid;gap:10px}
 .faq details{
@@ -564,7 +540,7 @@ section[id],main{scroll-margin-top:96px}
 @keyframes fadeDown{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
 
 /* =========================================================================
-   14. CTA FINAL + FOOTER
+   13. CTA FINAL + FOOTER
    ========================================================================= */
 .cta-band{position:relative;overflow:hidden;background:var(--ink);color:#F7EDE0;text-align:center}
 .cta-band::before,.cta-band::after{content:"";position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none}
@@ -625,7 +601,7 @@ section[id],main{scroll-margin-top:96px}
 @media (max-width:979px){body{padding-bottom:78px}}
 
 /* =========================================================================
-   15. ANIMATIONS D'APPARITION
+   14. ANIMATIONS D'APPARITION
    ========================================================================= */
 @media (prefers-reduced-motion:no-preference){
   .rv{opacity:0;transform:translateY(20px);transition:opacity .75s var(--ease),transform .75s var(--ease)}
