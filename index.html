@@ -699,6 +699,13 @@ section[id],main{scroll-margin-top:96px}
   font-size:.79rem;color:rgba(246,234,219,.5);
 }
 .ft__bot p{margin:0}
+/* Credit d'agence : meme palier visuel que la barre basse, centre. */
+.ft__credit{flex:1 1 auto;text-align:center}
+.ft__credit a{
+  color:rgba(246,234,219,.78);border-bottom:1px solid rgba(246,234,219,.28);
+  transition:color .25s var(--ease),border-color .25s var(--ease);
+}
+.ft__credit a:hover{border-color:var(--gold-lt)}
 
 /* Barre de reservation collante (mobile) */
 .dock{
@@ -730,7 +737,9 @@ section[id],main{scroll-margin-top:96px}
   .ft__social{padding-block:11px}
   /* Lien telephone insere dans une phrase : le padding est compense par une
      marge negative, la zone tactile grandit sans decaler le paragraphe. */
-  .svc-cta p a{display:inline-block;padding-block:12px;margin-block:-12px}
+  .svc-cta p a,
+  .ft__credit a{display:inline-block;padding-block:12px;margin-block:-12px}
+  .ft__credit{flex-basis:100%}
   .info li{padding-block:6px}
   .ft ul.ft__links{gap:0}
   .ft__contact li{margin-bottom:0}
@@ -1416,6 +1425,8 @@ section[id],main{scroll-margin-top:96px}
 
   <div class="wrap ft__bot">
     <p>© <span id="yr">2026</span> Ongles Vie-Elle · Saint-Éloi, Bas-Saint-Laurent (Québec)</p>
+    <p class="ft__credit">Site web réalisé par l’équipe
+      <a href="https://dactyl.mobile/" target="_blank" rel="noopener">Dactyl</a></p>
     <p>Salon d’ongles · Résine, poudre et gel · Manucure française et nail art</p>
   </div>
 </footer>
