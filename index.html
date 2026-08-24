@@ -224,13 +224,13 @@ section[id],main{scroll-margin-top:96px}
 }
 .btn svg{flex:none;width:1.05em;height:1.05em}
 .btn--gold{
-  background:linear-gradient(135deg,#CFA061 0%,var(--gold) 42%,var(--gold-dp) 100%);
+  background:linear-gradient(135deg,var(--gold-dp) 0%,#7F5724 42%,#6F4B1E 100%);
   color:#FFFBF4;
   box-shadow:0 1px 0 rgba(255,255,255,.35) inset,0 12px 26px -14px rgba(142,103,47,.85);
 }
 .btn--gold::after{
   content:"";position:absolute;inset:0;border-radius:inherit;
-  background:linear-gradient(135deg,rgba(255,255,255,.34),rgba(255,255,255,0) 46%);
+  background:linear-gradient(135deg,rgba(0,0,0,.16),rgba(0,0,0,0) 46%);
   opacity:0;transition:opacity .3s var(--ease);
 }
 .btn--gold:hover::after{opacity:1}
@@ -520,6 +520,10 @@ section[id],main{scroll-margin-top:96px}
   transition:opacity .35s var(--ease),transform .35s var(--ease);
 }
 .gal__item:hover .gal__cap,.gal__item:focus-visible .gal__cap{opacity:1;transform:none}
+/* Sur ecran tactile, le survol n'existe pas : la legende reste affichee. */
+@media (hover:none){
+  .gal__cap{opacity:1;transform:none}
+}
 @media (min-width:760px){
   .gal{grid-template-columns:repeat(6,1fr)}
   .gal__item{grid-column:span 2}
