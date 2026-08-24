@@ -52,9 +52,13 @@
      7. DOMAINE : « https://www.onglesvieelle.ca/ » est un PLACEHOLDER.
         >>> A REMPLACER PARTOUT avant la mise en ligne : link canonical, og:url,
             twitter:image, og:image et le champ "url" du JSON-LD. <<<
-     8. IMAGE DE PARTAGE : deposer un fichier « og-image.jpg » (1200x630) a la
-        racine du site. Les images de la page, elles, sont integrees en base64 :
-        le fichier reste 100 % autonome.
+     8. IMAGE DE PARTAGE : « og-image.jpg » (1200x630, ~138 Ko) est presente a la
+        racine du site. Elle est regeneree par _sources/make_og_image.py a partir
+        des memes data-URI que la page (photo heros + logo), donc elle reste
+        coherente si ces visuels changent. C'est le SEUL fichier externe : les
+        images de la page restent integrees en base64.
+        >>> Elle ne se chargera qu'une fois le domaine placeholder remplace
+            (voir le point 7) : og:image doit etre une URL absolue. <<<
      9. AUCUNE note moyenne (aggregateRating) n'est declaree dans le JSON-LD :
         Facebook ne fournit que des recommandations binaires. A ajouter le jour
         ou une fiche Google Business Profile recueillera de vraies notes.
@@ -93,7 +97,8 @@
 <meta property="og:image" content="https://www.onglesvieelle.ca/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Pose d’ongles réalisée par Ongles Vie-Elle à Saint-Éloi">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:alt" content="Carte Ongles Vie-Elle : logo du salon, mention « Pose d’ongles à Saint-Éloi » et photo d’une pose nude en amande">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Ongles Vie-Elle | Pose d'ongles à Saint-Éloi">
 <meta name="twitter:description" content="Résine et poudre ou gel, ongles naturels ou prothèses. Dès 55 $. Réservation en ligne.">
@@ -114,7 +119,7 @@
 :root{
   --ink:#2E211B;            /* espresso : repris du ruban du logo */
   --ink-2:#4A382F;
-  --muted:#7B6A5F;
+  --muted:#68574C;
   --cream:#FBF6F1;
   --cream-2:#F4EAE0;
   --cream-3:#EFE2D5;
@@ -159,6 +164,7 @@ body{
 img,svg{max-width:100%;display:block}
 img{height:auto}
 h1,h2,h3,h4{margin:0;font-family:var(--serif);font-weight:400;line-height:1.12;letter-spacing:-.005em;color:var(--ink);text-wrap:balance}
+h3{font-weight:500}
 p{margin:0 0 1em;text-wrap:pretty}
 p:last-child{margin-bottom:0}
 a{color:inherit;text-decoration:none}
@@ -190,7 +196,7 @@ section[id],main{scroll-margin-top:96px}
 
 .eyebrow{
   display:inline-flex;align-items:center;gap:.6em;
-  font-size:.735rem;font-weight:500;letter-spacing:.19em;text-transform:uppercase;
+  font-size:.785rem;font-weight:500;letter-spacing:.17em;text-transform:uppercase;
   color:var(--gold-dp);
 }
 .eyebrow::before{
@@ -276,7 +282,7 @@ section[id],main{scroll-margin-top:96px}
   color:var(--ink);letter-spacing:.005em;white-space:nowrap;
 }
 .brand__txt span{
-  display:block;font-size:.545rem;letter-spacing:.28em;text-transform:uppercase;
+  display:block;font-size:.63rem;letter-spacing:.2em;text-transform:uppercase;
   color:var(--gold-dp);margin-top:3px;white-space:nowrap;
 }
 @media (min-width:360px){.brand__txt{display:block}}
@@ -284,7 +290,7 @@ section[id],main{scroll-margin-top:96px}
   .brand__logo{height:44px}
   .hdr.is-stuck .brand__logo{height:40px}
   .brand__txt b{font-size:1.1rem}
-  .brand__txt span{font-size:.5rem;letter-spacing:.22em}
+  .brand__txt span{font-size:.63rem;letter-spacing:.1em}
 }
 
 .nav{display:none;margin-inline:auto}
@@ -712,6 +718,23 @@ section[id],main{scroll-margin-top:96px}
 .dock__tel svg{width:18px;height:18px;color:var(--gold-dp)}
 @media (min-width:980px){.dock{display:none}}
 @media (max-width:979px){body{padding-bottom:78px}}
+
+/* Cibles tactiles : au moins 44 px de haut pour les liens secondaires sur
+   mobile. Les espacements des conteneurs sont reduits d'autant pour garder
+   le meme rythme visuel. Les liens inseres dans un paragraphe sont exclus. */
+@media (max-width:979px){
+  .info__txt a,
+  .ft__links a,
+  .ft__contact a,
+  .drawer__foot .meta a{display:inline-block;padding-block:11px}
+  .ft__social{padding-block:11px}
+  /* Lien telephone insere dans une phrase : le padding est compense par une
+     marge negative, la zone tactile grandit sans decaler le paragraphe. */
+  .svc-cta p a{display:inline-block;padding-block:12px;margin-block:-12px}
+  .info li{padding-block:6px}
+  .ft ul.ft__links{gap:0}
+  .ft__contact li{margin-bottom:0}
+}
 
 /* =========================================================================
    14. ANIMATIONS D'APPARITION

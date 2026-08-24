@@ -3,6 +3,7 @@
 Site vitrine d'**Ongles Vie-Elle** — salon d'ongles à Saint-Éloi (MRC des Basques, Bas-Saint-Laurent, Québec).
 
 - **Page** : `index.html` — fichier unique, autonome (CSS + JS + images en base64), aucune dépendance obligatoire.
+- **Partage social** : `og-image.jpg` (1200 × 630) — seul fichier externe, référencé par `og:image`.
 - **Réservation** : https://dactyl.mobile/book/GKhDXe5cruTzijekcXE49rnb5Qv2
 - **Facebook** : https://www.facebook.com/profile.php?id=61587640748664
 
@@ -12,7 +13,8 @@ Site vitrine d'**Ongles Vie-Elle** — salon d'ongles à Saint-Éloi (MRC des Ba
 
 ```bash
 cd _sources
-python build.py      # régénère ../index.html
+python build.py           # régénère ../index.html
+python make_og_image.py   # régénère ../og-image.jpg
 ```
 
 | Fichier | Contenu |
@@ -23,11 +25,12 @@ python build.py      # régénère ../index.html
 | `_sources/part4_body_b.html` | galerie, à propos, avis, zone desservie, FAQ, pied de page |
 | `_sources/part5_tail.html` | JSON-LD (schema.org) et JavaScript |
 | `_sources/asset_*.txt` | images encodées en data-URI (`{{LOGO}}`, `{{G1}}`…`{{SALON}}`) |
+| `_sources/make_og_image.py` | génère `og-image.jpg` à partir de `asset_G1` + `asset_LOGO` |
 
 ## À finaliser avant la mise en ligne
 
 1. Remplacer le domaine placeholder `https://www.onglesvieelle.ca/` (balise `canonical`, `og:url`, `twitter:image`, `og:image` et champ `url` du JSON-LD).
-2. Déposer une image de partage `og-image.jpg` (1200 × 630) à la racine du site.
+2. ~~Déposer une image de partage `og-image.jpg` (1200 × 630) à la racine du site.~~ — fait ; vérifier qu'elle est bien déployée à la racine, car `og:image` la référence en URL absolue.
 3. Confirmer la ville : elle est déduite du code postal G0L 2V0, Facebook ne l'affiche pas.
 4. Ajouter les heures d'ouverture réelles (`openingHoursSpecification` dans le JSON-LD).
 
