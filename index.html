@@ -49,16 +49,18 @@
         reaffiches un jour, obtenir l'accord ecrit des clientes au prealable.
      6. GEO du JSON-LD : centroide du code postal G0L 2V0 (48.0482, -69.2406).
         A remplacer par les coordonnees exactes du local.
-     7. DOMAINE : « https://www.onglesvieelle.ca/ » est un PLACEHOLDER.
-        >>> A REMPLACER PARTOUT avant la mise en ligne : link canonical, og:url,
-            twitter:image, og:image et le champ "url" du JSON-LD. <<<
+     7. DOMAINE : « https://www.onglesvieelle.ca/ » est le domaine officiel,
+        actif et servi en HTTPS par GitHub Pages (fichier CNAME a la racine).
+        Il est utilise partout : link canonical, og:url, og:image,
+        twitter:image, le champ "url" du JSON-LD, robots.txt et sitemap.xml.
+        La version sans www redirige vers www.
      8. IMAGE DE PARTAGE : « og-image.jpg » (1200x630, ~138 Ko) est presente a la
         racine du site. Elle est regeneree par _sources/make_og_image.py a partir
         des memes data-URI que la page (photo heros + logo), donc elle reste
         coherente si ces visuels changent. C'est le SEUL fichier externe : les
         images de la page restent integrees en base64.
-        >>> Elle ne se chargera qu'une fois le domaine placeholder remplace
-            (voir le point 7) : og:image doit etre une URL absolue. <<<
+        Elle est referencee en URL absolue sur le domaine officiel
+        (voir le point 7) et repond en HTTP 200 a la racine du site.
      9. AUCUNE note moyenne (aggregateRating) n'est declaree dans le JSON-LD :
         Facebook ne fournit que des recommandations binaires. A ajouter le jour
         ou une fiche Google Business Profile recueillera de vraies notes.
@@ -85,7 +87,7 @@
 <meta name="geo.position" content="48.0482;-69.2406">
 <meta name="ICBM" content="48.0482, -69.2406">
 
-<!-- >>> Remplacer le domaine placeholder par le vrai domaine avant la mise en ligne <<< -->
+<!-- Domaine officiel : www.onglesvieelle.ca (voir CNAME, robots.txt, sitemap.xml) -->
 <link rel="canonical" href="https://www.onglesvieelle.ca/">
 
 <meta property="og:type" content="website">
@@ -1453,7 +1455,7 @@ section[id],main{scroll-margin-top:96px}
 </div>
 
 <!-- ============================ SCHEMA.ORG ============================
-     >>> Remplacer "https://www.onglesvieelle.ca/" par le vrai domaine. <<<
+     Domaine officiel : "https://www.onglesvieelle.ca/" (@id et url ci-dessous).
      Aucune note moyenne n'est déclarée : Facebook ne fournit que des
      recommandations binaires. Ajouter aggregateRating + review lorsque de
      vraies notes (Google Business Profile) seront disponibles.
