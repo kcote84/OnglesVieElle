@@ -18,8 +18,11 @@ Site vitrine d'**Ongles Vie-Elle** — salon d'ongles à Saint-Éloi (MRC des Ba
 | `CNAME` | domaine personnalisé de GitHub Pages — contient exactement `www.onglesvieelle.ca` |
 | `robots.txt` | autorise l'indexation complète et déclare le sitemap |
 | `sitemap.xml` | site d'une seule page : ne contient que `https://www.onglesvieelle.ca/` |
+| `favicon.ico` | 16 + 32 + 48 px — icône affichée par Google Search et les onglets |
+| `favicon-48.png` | 48 × 48 — format préféré de Google Search |
+| `apple-touch-icon.png` | 180 × 180 — écran d'accueil iOS |
 
-Ces trois fichiers sont **statiques** : ils sont versionnés tels quels à la racine et ne sont
+`robots.txt`, `sitemap.xml` et `CNAME` sont **statiques** : ils sont versionnés tels quels à la racine et ne sont
 pas générés par `_sources/build.py` (rien à y interpoler). `sitemap.xml` n'inclut pas de
 `<lastmod>`, faute d'un processus qui pourrait le tenir à jour de façon fiable.
 
@@ -34,6 +37,7 @@ et aucune règle ne bloque Googlebot.
 cd _sources
 python build.py           # régénère ../index.html
 python make_og_image.py   # régénère ../og-image.jpg
+python make_favicon.py    # régénère ../favicon.ico, favicon-48.png, apple-touch-icon.png
 ```
 
 | Fichier | Contenu |
@@ -45,6 +49,7 @@ python make_og_image.py   # régénère ../og-image.jpg
 | `_sources/part5_tail.html` | JSON-LD (schema.org) et JavaScript |
 | `_sources/asset_*.txt` | images encodées en data-URI (`{{LOGO}}`, `{{G1}}`…`{{SALON}}`) |
 | `_sources/make_og_image.py` | génère `og-image.jpg` à partir de `asset_G1` + `asset_LOGO` |
+| `_sources/make_favicon.py` | génère les trois favicons depuis la version simplifiée du logo |
 
 ## À finaliser
 
