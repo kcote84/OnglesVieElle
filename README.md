@@ -55,8 +55,12 @@ python make_favicon.py    # régénère ../favicon.ico, favicon-48.png, apple-to
 
 1. ~~Remplacer le domaine placeholder par le domaine officiel.~~ — fait : `https://www.onglesvieelle.ca/` est actif et utilisé partout (`canonical`, Open Graph, Twitter, JSON-LD, `CNAME`, `robots.txt`, `sitemap.xml`).
 2. ~~Déposer une image de partage `og-image.jpg` (1200 × 630) à la racine du site.~~ — fait : déployée à la racine, elle répond en HTTP 200 (`og:image` la référence en URL absolue).
-3. Confirmer la ville : elle est déduite du code postal G0L 2V0, Facebook ne l'affiche pas.
-4. Ajouter les heures d'ouverture réelles (`openingHoursSpecification` dans le JSON-LD).
-5. Remplacer le `geo` du JSON-LD (centroïde du code postal) par les coordonnées exactes du local.
+3. ~~Remplacer le favicon `data:image` par de vrais fichiers.~~ — fait : `favicon.ico` (16/32/48),
+   `favicon-48.png` et `apple-touch-icon.png` (180 × 180) répondent en HTTP 200 à la racine.
+   Google peut mettre plusieurs jours à plusieurs semaines avant de remplacer le globe générique
+   dans ses résultats : le délai vient de son recrawl, pas du site.
+4. Confirmer la ville : elle est déduite du code postal G0L 2V0, Facebook ne l'affiche pas.
+5. Ajouter les heures d'ouverture réelles (`openingHoursSpecification` dans le JSON-LD).
+6. Remplacer le `geo` du JSON-LD (centroïde du code postal) par les coordonnées exactes du local.
 
 Les hypothèses et les sources des données sont documentées en commentaire au début d'`index.html`.
