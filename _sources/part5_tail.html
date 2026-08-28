@@ -207,8 +207,18 @@
     burger.setAttribute("aria-expanded", "true");
     burger.setAttribute("aria-label", "Fermer le menu");
     document.body.style.overflow = "hidden";
-    var f = focusables(drawer);
-    if (f.length) { f[0].focus(); }
+    /* La transition de visibility peut durer plusieurs frames. Attendre que le
+       tiroir soit reellement visible avant de deplacer le focus. */
+    function focusDrawerWhenVisible() {
+      if (!drawer.classList.contains("is-open")) return;
+      if (window.getComputedStyle(drawer).visibility !== "visible") {
+        window.requestAnimationFrame(focusDrawerWhenVisible);
+        return;
+      }
+      var f = focusables(drawer);
+      if (f.length) { f[0].focus(); }
+    }
+    window.requestAnimationFrame(focusDrawerWhenVisible);
   }
   function closeDrawer() {
     if (!drawer || !burger) return;
